@@ -1,7 +1,7 @@
 composer create-project symfony/framework-standard-edition fos_rest 2.6
 
 add to composer.json
-
+```
   Doctrine
     "stof/doctrine-extensions-bundle": "dev-master",
 
@@ -20,10 +20,10 @@ add to composer.json
   Api Doc
     "nelmio/api-doc-bundle": "2.7.0",
     "sami/sami": "3.0.*",
-
+```
 
 Edit config.yml
-
+```
   # Sensio\Bundle\FrameworkExtraBundle Configuration
   sensio_framework_extra:
       router:   { annotations: true }
@@ -43,13 +43,13 @@ Edit config.yml
               loggable: true
               tree: true
 
-
+```
 added fos_rest.yml configuration
 
 create a bundle
 
 update app/AppKernel.php
-
+```
 	  new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),  
     new FOS\RestBundle\FOSRestBundle(),  
     new JMS\AopBundle\JMSAopBundle(),  
@@ -57,25 +57,27 @@ update app/AppKernel.php
     new JMS\DiExtraBundle\JMSDiExtraBundle($this),  
     new JMS\SerializerBundle\JMSSerializerBundle(),  
     new Nelmio\ApiDocBundle\NelmioApiDocBundle(),  
-
+```
 Update app/config/routing.yml
 
 #your bundle  
+```
 restful_services:  
     resource: "@ApiBundle/Resources/config/routing.yml"  
     type:     rest  
     prefix:   /api  
-
-#ApiDoc  
+```
+#ApiDoc
+```  
 nelmio_apidoc:  
     resource: "@NelmioApiDocBundle/Resources/config/routing.yml"  
     prefix:   /api/doc  
-
+```
 create a routing.yml in the bundle with
 
 create a controller named DefaultRestController.php
  with
-
+```php
   <?php  
 
   namespace ApiBundle\Controller;  
@@ -122,13 +124,13 @@ create a controller named DefaultRestController.php
   }
 
   ?>
-
+```
 Added route to your bundle routing.yml
-
+```
   api_test:
       type: rest
       prefix: /v1
       resource: ApiBundle\Controller\DefaultRestController
       name_prefix:  api_1_ # naming collision
-
+```
 now call the page http://fosrest.local/api/doc/

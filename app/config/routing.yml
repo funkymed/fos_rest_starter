@@ -1,0 +1,15 @@
+api:
+    resource: "@ApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+#FOSRest
+restful_services:
+    resource: "@ApiBundle/Resources/config/routing.yml"
+    type:     rest
+    prefix:   /api
+
+#ApiDoc
+nelmio_apidoc:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /api/doc

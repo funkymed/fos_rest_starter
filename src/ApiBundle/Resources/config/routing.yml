@@ -1,0 +1,11 @@
+api_test:
+    type: rest
+    prefix: /v1
+    resource: ApiBundle\Controller\DefaultRestController
+    name_prefix:  api_1_ # naming collision
+
+api_entity:
+    type: rest
+    prefix: /v1
+    resource: ApiBundle\Controller\EntityRestController
+    name_prefix:  api_1_ # naming collision

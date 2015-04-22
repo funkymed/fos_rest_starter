@@ -30,14 +30,18 @@ class EntityRestController extends FOSRestController
        */
       public function getEntitiesAction()
       {
-          $view = View::create();
-          $view->setData(array('test'=>true))->setStatusCode(200)
-            ->setSerializationContext(
-              SerializationContext::create()
-            )
-          ;
+        $doctrine   = $this->container->get('doctrine');
+        $em         = $doctrine->getManager();
+        $entities   = $em->getRepository("ApiBundle:Test")->findAll();
 
-          return $view;
+        $view = View::create();
+        $view->setData($entities)->setStatusCode(200)
+          ->setSerializationContext(
+            SerializationContext::create()
+              ->setGroups(array("test_list"))
+          )
+        ;
+        return $view;
       }
 
       /**
@@ -56,14 +60,24 @@ class EntityRestController extends FOSRestController
        */
       public function getEntityAction($id)
       {
-          $view = View::create();
-          $view->setData(array('test'=>true))->setStatusCode(200)
-            ->setSerializationContext(
-              SerializationContext::create()
-            )
-          ;
+        $doctrine   = $this->container->get('doctrine');
+        $em         = $doctrine->getManager();
 
-          return $view;
+        $entity     = $em->getRepository("ApiBundle:Test")->find($id);
+
+        if (!$entity) {
+            throw $this->createNotFoundException('Data not found.');
+        }
+
+        $view = View::create();
+        $view->setData($entity)->setStatusCode(200)
+          ->setSerializationContext(
+            SerializationContext::create()
+              ->setGroups(array("test_detail","toto_list"))
+          )
+        ;
+
+        return $view;
       }
 
 }

@@ -50,45 +50,45 @@ create a bundle
 
 update app/AppKernel.php
 
-	  new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-    new FOS\RestBundle\FOSRestBundle(),
-    new JMS\AopBundle\JMSAopBundle(),
-    new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
-    new JMS\DiExtraBundle\JMSDiExtraBundle($this),
-    new JMS\SerializerBundle\JMSSerializerBundle(),
-    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
+	  new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),  
+    new FOS\RestBundle\FOSRestBundle(),  
+    new JMS\AopBundle\JMSAopBundle(),  
+    new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),  
+    new JMS\DiExtraBundle\JMSDiExtraBundle($this),  
+    new JMS\SerializerBundle\JMSSerializerBundle(),  
+    new Nelmio\ApiDocBundle\NelmioApiDocBundle(),  
 
 Update app/config/routing.yml
 
-#your bundle
-restful_services:
-    resource: "@ApiBundle/Resources/config/routing.yml"
-    type:     rest
-    prefix:   /api
+#your bundle  
+restful_services:  
+    resource: "@ApiBundle/Resources/config/routing.yml"  
+    type:     rest  
+    prefix:   /api  
 
-#ApiDoc
-nelmio_apidoc:
-    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
-    prefix:   /api/doc
+#ApiDoc  
+nelmio_apidoc:  
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"  
+    prefix:   /api/doc  
 
 create a routing.yml in the bundle with
 
 create a controller named DefaultRestController.php
  with
 
-  <?php
+  <?php  
 
-  namespace ApiBundle\Controller;
+  namespace ApiBundle\Controller;  
 
-  use FOS\RestBundle\Controller\FOSRestController;
-  use FOS\RestBundle\Controller\Annotations\RequestParam;
-  use FOS\RestBundle\View\View;
-  use FOS\RestBundle\Request\ParamFetcher;
-  use Nelmio\ApiDocBundle\Annotation\ApiDoc;
-  use JMS\SecurityExtraBundle\Annotation\Secure;
-  use Symfony\Component\Validator\ConstraintViolationList;
-  use Tigreboite\FmBundle\Entity\Pays;
-  use JMS\Serializer\SerializationContext;
+  use FOS\RestBundle\Controller\FOSRestController;  
+  use FOS\RestBundle\Controller\Annotations\RequestParam;  
+  use FOS\RestBundle\View\View;  
+  use FOS\RestBundle\Request\ParamFetcher;  
+  use Nelmio\ApiDocBundle\Annotation\ApiDoc;  
+  use JMS\SecurityExtraBundle\Annotation\Secure;  
+  use Symfony\Component\Validator\ConstraintViolationList;  
+  use Tigreboite\FmBundle\Entity\Pays;  
+  use JMS\Serializer\SerializationContext;  
 
   class DefaultRestController extends FOSRestController
   {

@@ -4,8 +4,14 @@ api_test:
     resource: ApiBundle\Controller\DefaultRestController
     name_prefix:  api_1_ # naming collision
 
-api_entity:
-    type: rest
-    prefix: /v1
-    resource: ApiBundle\Controller\EntityRestController
-    name_prefix:  api_1_ # naming collision
+#api_entity:
+#    type: rest
+#    prefix: /v1
+#    resource: ApiBundle\Controller\EntityRestController
+#    name_prefix:  api_1_ # naming collision
+
+#api_param:
+#    type: rest
+#    prefix: /v1
+#    resource: ApiBundle\Controller\ParamRestController
+#    name_prefix:  api_1_ # naming collision

@@ -26,7 +26,8 @@
         "friendsofsymfony/rest-bundle": "1.5.*",
         "willdurand/rest-extra-bundle": "1.0.*",
         "nelmio/api-doc-bundle": "2.7.0",
-        "sami/sami": "3.0.*"
+        "sami/sami": "3.0.*",
+        "guzzlehttp/guzzle": "~5.0@dev"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"

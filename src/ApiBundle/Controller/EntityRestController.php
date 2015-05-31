@@ -9,7 +9,6 @@ use FOS\RestBundle\Request\ParamFetcher;
 use Nelmio\ApiDocBundle\Annotation\ApiDoc;
 use JMS\SecurityExtraBundle\Annotation\Secure;
 use Symfony\Component\Validator\ConstraintViolationList;
-use Tigreboite\FmBundle\Entity\Pays;
 use JMS\Serializer\SerializationContext;
 
 class EntityRestController extends FOSRestController

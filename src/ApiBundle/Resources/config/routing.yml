@@ -9,7 +9,7 @@ api_test:
 #    prefix: /v1
 #    resource: ApiBundle\Controller\EntityRestController
 #    name_prefix:  api_1_ # naming collision
-
+#
 #api_param:
 #    type: rest
 #    prefix: /v1
